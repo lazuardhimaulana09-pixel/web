@@ -1,0 +1,217 @@
+/* --- Global Styling (Tambahkan di bagian atas style.css jika belum ada) --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0; /* Warna teks default */
+    background-color: #020b16; /* Warna background jika tidak ada gradasi */
+}
+
+/* --- Section Biodata --- */
+.bio-section {
+    position: absolute; /* Posisikan di atas elemen .sky */
+    z-index: 100; /* Pastikan di paling depan */
+    width: 100%;
+    height: 100vh; /* Setinggi viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Agar klik di belakangnya tetap berfungsi jika elemen .bio-section transparan */
+}
+
+.profile-card {
+    pointer-events: all; /* Aktifkan kembali pointer event untuk card */
+    background: rgba(10, 25, 40, 0.8); /* Latar belakang semi-transparan */
+    backdrop-filter: blur(8px); /* Efek blur pada latar belakang */
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow:
+    0 10px 30px rgba(0, 150, 200, 0.4), /* Bayangan cyan gelap */
+    0 0 0 2px rgba(0, 150, 200, 0.2); /* Border tipis efek */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Foto Profil --- */
+.profile-photo-border {
+    width: 160px; /* Ukuran total border dan foto */
+    height: 160px;
+    border-radius: 50%; /* Bentuk lingkaran untuk border luar */
+    margin: 0 auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Efek border bintang bersinar */
+    background: conic-gradient(from var(--angle) at 50% 50%,
+                               #00bcd4 0%, #00bcd4 5%,
+                               transparent 5%, transparent 20%,
+                               #ffeb3b 20%, #ffeb3b 25%,
+                               transparent 25%, transparent 40%,
+                               #9c27b0 40%, #9c27b0 45%,
+                               transparent 45%, transparent 60%,
+                               #f44336 60%, #f44336 65%,
+                               transparent 65%, transparent 80%,
+                               #4caf50 80%, #4caf50 85%,
+                               transparent 85%, transparent 100%);
+    animation: rotateBorder 5s linear infinite;
+    --angle: 0deg; /* CSS Variable untuk rotasi */
+}
+
+.profile-photo {
+    width: 140px; /* Ukuran foto sebenarnya */
+    height: 140px;
+    border-radius: 50%; /* Agar foto juga lingkaran */
+    object-fit: cover; /* Memastikan foto tidak pecah */
+    border: 3px solid rgba(255, 255, 255, 0.7); /* Border putih di sekitar foto */
+}
+
+@keyframes rotateBorder {
+    to { --angle: 360deg; }
+}
+
+
+/* --- Teks Biodata --- */
+.bio-name {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    color: #00bcd4; /* Warna cyan */
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.bio-title {
+    font-size: 1.1em;
+    color: #b0c4de;
+    margin-bottom: 25px;
+}
+
+.bio-description {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+/* --- Social Links --- */
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fefcd7; /* Warna bintang saat di-hover */
+    transform: translateY(-3px);
+}
+
+
+/* --- Efek Bintang di Border Foto (Glow Tambahan) --- */
+/* Jika ingin bintang di border lebih 'hidup', bisa tambahkan pseudo-element */
+/* .profile-photo-border::before {
+ *   content: '';
+ *   position: absolute;
+ *   top: -5px; bottom: -5px; left: -5px; right: -5px;
+ *   background: inherit;
+ *   border-radius: 50%;
+ *   filter: blur(5px);
+ *   z-index: -1;
+ *   opacity: 0.7;
+ *   animation: rotateBorder 5s linear infinite;
+ *   --angle: 0deg;
+ } * */
+
+
+/* --- Penyesuaian untuk Mobile (Opsional) --- */
+@media (max-width: 768px) {
+    .profile-card {
+        max-width: 90%;
+        padding: 30px;
+        margin: 20px;
+    }
+    .bio-name {
+        font-size: 2em;
+    }
+    .bio-title {
+        font-size: 1em;
+    }
+}
+/* Langit dengan gradasi malam yang dalam */
+.sky {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #020111 10%, #191621 100%);
+    position: relative;
+}
+
+/* Membuat Bulan Purnama */
+.moon {
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+    background: #fefcd7;
+    border-radius: 50%;
+    /* Efek cahaya berpendar (glow) */
+    box-shadow: 
+        0 0 40px #fefcd7, 
+        0 0 80px rgba(254, 252, 215, 0.4);
+}
+
+/* Membuat Bintang-Bintang */
+.stars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    /* Kita gunakan box-shadow untuk membuat ribuan bintang tanpa banyak elemen */
+    box-shadow: 
+        10vw 20vh #fff, 25vw 10vh #fff, 45vw 30vh #fff, 
+        70vw 15vh #fff, 85vw 40vh #fff, 15vw 60vh #fff, 
+        40vw 80vh #fff, 65vw 70vh #fff, 90vw 90vh #fff,
+        /* Tambahkan koordinat manual atau gunakan generator untuk lebih banyak */
+        20vw 45vh 1px #fff, 55vw 5vh 1px #fff, 75vw 55vh 1px #fff;
+    
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* Efek Bintang Berkedip */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+/* Gaya untuk partikel percikan */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none; /* Agar tidak menghalangi klik selanjutnya */
+    box-shadow: 0 0 10px #fff, 0 0 20px #fefcd7;
+    animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* Bintang menyebar ke arah acak */
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
