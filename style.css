@@ -1,0 +1,116 @@
+:root {
+    --cyan-glow: rgba(0, 255, 255, 0.4);
+    --space-dark: #020111;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--space-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Background Langit & Bintang */
+.sky {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #020111 0%, #051327 100%);
+    z-index: -2;
+}
+
+/* Efek Gradient Bayangan Cyan */
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 20, 40, 0.8) 100%);
+    box-shadow: inset 0 0 150px rgba(0, 255, 255, 0.1);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.stars {
+    width: 2px; height: 2px;
+    background: transparent;
+    box-shadow: 10vw 20vh #fff, 50vw 40vh #fff, 80vw 10vh #fff, 20vw 80vh #fff, 70vw 70vh #fff, 40vw 30vh #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* Kartu Profil */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.profile-card {
+    background: rgba(10, 20, 35, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 0 40px var(--cyan-glow);
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.6);
+}
+
+/* Foto Profil Kotak dengan Border Bersinar */
+.photo-container {
+    width: 120px; height: 120px;
+    margin: 0 auto 20px;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Tag Keahlian */
+.skill-tag {
+    display: inline-block;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid #00ffff;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin: 5px;
+    color: #00ffff;
+}
+
+/* Fitur Lucu: Astronot */
+.floating-astro {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    transition: all 0.1s ease-out;
+    filter: drop-shadow(0 0 10px white);
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #00ffff;
+    color: #020111;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+.cta-button:hover { background: white; box-shadow: 0 0 20px white; }
