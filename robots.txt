@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lazuardhimaulana09-pixel.github.io/web/sitemap.xml
