@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.log
+temp_ppm/
+/tmp/
+.vscode/
+.idea/
