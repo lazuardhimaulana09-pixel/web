@@ -64,6 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Lulus uji kompetensi materi resmi kurikulum MTCNA (MikroTik Certified Network Associate) dengan perolehan skor sempurna 95 dari 100.'
     },
     {
+      id: '350286451',
+      title: 'MTCNA Quiz Questions (94/100)',
+      issuer: 'ProProfs Quiz Assessment',
+      category: 'net',
+      categoryName: 'Jaringan',
+      badgeClass: 'tag-net',
+      date: '05 November 2026',
+      verifyUrl: 'Lazuardhi Akbar Maulana Tsani-350286451.pdf',
+      pdfUrl: 'Lazuardhi Akbar Maulana Tsani-350286451.pdf',
+      thumb: 'assets/certificates/lazuardhi_akbar_maulana_tsani_350286451_thumb.webp',
+      full: 'assets/certificates/lazuardhi_akbar_maulana_tsani_350286451_full.webp',
+      description: 'Uji kompetensi materi kurikulum resmi MTCNA (MikroTik Certified Network Associate) dengan skor 94 dari 100.'
+    },
+    {
       id: 'IDN-1762251503-11033-66733',
       title: 'Belajar Linux dari Nol',
       issuer: 'ID-Networkers (IDN.ID)',
@@ -146,34 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
       thumb: 'assets/certificates/typingcom_thumb.webp',
       full: 'assets/certificates/typingcom_full.webp',
       description: 'Sertifikasi Kecepatan Mengetik 10 Jari (Touch Typing) dengan kecepatan 46 Kata Per Menit (WPM) dan akurasi tinggi 97%.'
-    },
-    {
-      id: 'DOC-TYP-32-01',
-      title: 'Intermediate Typing Unit (32 WPM - 96%)',
-      issuer: 'Typing.com Training',
-      category: 'type',
-      categoryName: 'Mengetik',
-      badgeClass: 'tag-type',
-      date: '16 Agustus 2026',
-      verifyUrl: 'doc1.pdf',
-      pdfUrl: 'doc1.pdf',
-      thumb: 'assets/certificates/doc1_thumb.webp',
-      full: 'assets/certificates/doc1_full.webp',
-      description: 'Penyelesaian Intermediate Typing Unit dengan performa 32 WPM dan akurasi 96% untuk efisiensi pengetikan perintah CLI dan coding.'
-    },
-    {
-      id: 'DOC-TYP-32-02',
-      title: 'Intermediate Unit Completion (32 WPM)',
-      issuer: 'Typing.com Training',
-      category: 'type',
-      categoryName: 'Mengetik',
-      badgeClass: 'tag-type',
-      date: '16 Agustus 2026',
-      verifyUrl: 'docketikintermideiate.pdf',
-      pdfUrl: 'docketikintermideiate.pdf',
-      thumb: 'assets/certificates/docketikintermideiate_thumb.webp',
-      full: 'assets/certificates/docketikintermideiate_full.webp',
-      description: 'Latihan lanjutan touch typing tingkat intermediate dengan konsistensi akurasi di atas 95%.'
     }
   ];
 
@@ -347,7 +333,7 @@ PING idn.id (103.28.12.12): 56 data bytes
       ' $$;      Y$b._   _,d$P\'      <span class="t-key">CPU</span>: Intel Core i5 @ 3.40GHz',
       ' Y$$.    \'.\'"Y$$$$P"\'         <span class="t-key">Memory</span>: 3140MiB / 16384MiB',
       '  \'$$b      "-.__             <span class="t-key">Network</span>: Gigabit Ethernet Full-Duplex',
-      '   \'Y$$                       <span class="t-key">Certificates</span>: 12 Verified Badges',
+      '   \'Y$$                       <span class="t-key">Certificates</span>: 11 Verified Badges',
       '<span class="t-prompt">lazuardhi@smkn1</span>:<span class="t-path">~</span>$ <span class="typing-cursor"></span>'
     ].join('\n')
   };
@@ -464,6 +450,21 @@ PING idn.id (103.28.12.12): 56 data bytes
         const text = btn.getAttribute('data-copy');
         copyToClipboard(text);
       });
+    });
+  }
+
+  // Auto-sync filter pill count badges with current certificatesData
+  function updateFilterPills() {
+    const counts = { all: certificatesData.length };
+    certificatesData.forEach(c => {
+      counts[c.category] = (counts[c.category] || 0) + 1;
+    });
+    filterBtns.forEach(btn => {
+      const cat = btn.getAttribute('data-filter');
+      const baseLabel = btn.getAttribute('data-label') || btn.textContent.replace(/\s*\(\d+\)/, '').trim();
+      btn.setAttribute('data-label', baseLabel);
+      const count = counts[cat] || 0;
+      btn.textContent = `${baseLabel} (${count})`;
     });
   }
 
@@ -628,5 +629,6 @@ PING idn.id (103.28.12.12): 56 data bytes
   }
 
   // Initial render
+  updateFilterPills();
   renderCertificates();
 });
