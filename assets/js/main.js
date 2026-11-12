@@ -1,6 +1,7 @@
 /**
  * Portofolio Lazuardhi Akbar Maulana Tsani
- * Ultra-fast Vanilla JavaScript (Zero Dependencies)
+ * Siswa TKJ @ SMKN 1 Kota Mojokerto
+ * Fast, Responsive, Accessible & Modern Architecture
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -163,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // --- 2. OPTIMIZED THROTTLED SCROLL LISTENER (RAF Sync for 60/120 FPS) ---
+  // --- 2. OPTIMIZED THROTTLED SCROLL LISTENER (RAF Sync) ---
   const header = document.getElementById('header');
   const hamburger = document.getElementById('hamburger');
   const mobileDrawer = document.getElementById('mobile-drawer');
@@ -261,20 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isDeleting) {
         typedEl.textContent = currentText.substring(0, charIdx - 1);
         charIdx--;
-        typingSpeed = 40;
+        typingSpeed = 35;
       } else {
         typedEl.textContent = currentText.substring(0, charIdx + 1);
         charIdx++;
-        typingSpeed = 75;
+        typingSpeed = 70;
       }
 
       if (!isDeleting && charIdx === currentText.length) {
-        typingSpeed = 2000; // Hold at end
+        typingSpeed = 2200; // Hold at end
         isDeleting = true;
       } else if (isDeleting && charIdx === 0) {
         isDeleting = false;
         roleIdx = (roleIdx + 1) % roles.length;
-        typingSpeed = 400; // Pause before next
+        typingSpeed = 350; // Pause before next
       }
 
       setTimeout(typeLoop, typingSpeed);
@@ -282,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
     typeLoop();
   }
 
-  // --- 4. INTERACTIVE TERMINAL TABS ---
+  // --- 4. INTERACTIVE TERMINAL TABS & CYBER ART ASCII ---
   const terminalContent = document.getElementById('terminal-content');
   const termTabs = document.querySelectorAll('.term-tab');
 
@@ -293,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="t-key">"school"</span>: <span class="t-str">"SMKN 1 Kota Mojokerto"</span>,
   <span class="t-key">"major"</span>: <span class="t-str">"Teknik Komputer & Jaringan (TKJ)"</span>,
   <span class="t-key">"location"</span>: <span class="t-str">"Kota Mojokerto, Jawa Timur"</span>,
+  <span class="t-key">"focus"</span>: <span class="t-str">"Network Engineering & Linux Administration"</span>,
   <span class="t-key">"status"</span>: <span class="t-str">"Ready for Internship / PKL & IT Collaboration"</span>,
   <span class="t-key">"typing_speed"</span>: <span class="t-str">"46 WPM (97% Accuracy)"</span>,
   <span class="t-key">"motto"</span>: <span class="t-str">"Belajar dari nol, praktik sampai ahli."</span>
@@ -322,17 +324,17 @@ PING idn.id (103.28.12.12): 56 data bytes
 
     neofetch: [
       '<span class="t-prompt">lazuardhi@smkn1</span>:<span class="t-path">~</span>$ neofetch',
-      '       _,met$$$$$gg.          <span class="t-cmd">lazuardhi@portfolio</span>',
+      '       _,met$$$$$gg.          <span class="t-cmd">lazuardhi@smkn1</span>',
       '    ,g$$$$$$$$$$$$$$$P.       -------------------',
       '  ,g$$P"     """Y$$.".        <span class="t-key">OS</span>: Debian GNU/Linux 12 (bookworm) x86_64',
-      ' ,$$P\'              \'$$$.     <span class="t-key">Host</span>: Custom Lab Server',
+      ' ,$$P\'              \'$$$.     <span class="t-key">Host</span>: Custom Cyber Lab Server',
       '\',$$P       ,ggs.     \'$$b:   <span class="t-key">Kernel</span>: 6.1.0-21-amd64',
       '\'d$$\'     ,$P"\'   .    $$$    <span class="t-key">Uptime</span>: 42 days, 7 hours',
       ' $$P      d$\'     ,    $$P    <span class="t-key">Shell</span>: bash 5.2.15',
-      ' $$:      $$.   -    ,d$$\'    <span class="t-key">Terminal</span>: Portfolio-CLI v2.0',
-      ' $$;      Y$b._   _,d$P\'      <span class="t-key">CPU</span>: Intel Core i5 @ 3.40GHz',
-      ' Y$$.    \'.\'"Y$$$$P"\'         <span class="t-key">Memory</span>: 3140MiB / 16384MiB',
-      '  \'$$b      "-.__             <span class="t-key">Network</span>: Gigabit Ethernet Full-Duplex',
+      ' $$:      $$.   -    ,d$$\'    <span class="t-key">Network</span>: MikroTik RouterOS & Cisco IOS',
+      ' $$;      Y$b._   _,d$P\'      <span class="t-key">Terminal</span>: Portfolio-CLI v2.5',
+      ' Y$$.    \'.\'"Y$$$$P"\'         <span class="t-key">CPU</span>: Intel Core i5 @ 3.40GHz',
+      '  \'$$b      "-.__             <span class="t-key">Memory</span>: 3140MiB / 16384MiB',
       '   \'Y$$                       <span class="t-key">Certificates</span>: 11 Verified Badges',
       '<span class="t-prompt">lazuardhi@smkn1</span>:<span class="t-path">~</span>$ <span class="typing-cursor"></span>'
     ].join('\n')
@@ -344,12 +346,16 @@ PING idn.id (103.28.12.12): 56 data bytes
       tab.classList.add('active');
       const target = tab.dataset.tab;
       if (tabContents[target] && terminalContent) {
-        terminalContent.innerHTML = tabContents[target];
+        terminalContent.style.opacity = '0.4';
+        setTimeout(() => {
+          terminalContent.innerHTML = tabContents[target];
+          terminalContent.style.opacity = '1';
+        }, 80);
       }
     });
   });
 
-  // --- 5. CERTIFICATES RENDER, FILTER & SEARCH ---
+  // --- 5. CERTIFICATES RENDER WITH SHIMMER SKELETON SCREEN ---
   const certGrid = document.getElementById('cert-grid');
   const certEmptyState = document.getElementById('cert-empty-state');
   const searchInput = document.getElementById('cert-search');
@@ -359,8 +365,52 @@ PING idn.id (103.28.12.12): 56 data bytes
   let currentCategory = 'all';
   let currentSearch = '';
 
-  function renderCertificates() {
+  /**
+   * Render shimmering skeleton placeholders
+   */
+  function renderSkeleton(count = 6) {
     if (!certGrid) return;
+    certGrid.style.display = 'grid';
+    if (certEmptyState) certEmptyState.style.display = 'none';
+
+    let skeletonHTML = '';
+    for (let i = 0; i < count; i++) {
+      skeletonHTML += `
+        <div class="glass-card cert-card skeleton-card">
+          <div class="skeleton-thumb skeleton-shimmer"></div>
+          <div class="skeleton-content">
+            <div class="skeleton-row">
+              <div class="skeleton-pill skeleton-shimmer"></div>
+              <div class="skeleton-date skeleton-shimmer"></div>
+            </div>
+            <div class="skeleton-title skeleton-shimmer"></div>
+            <div class="skeleton-issuer skeleton-shimmer"></div>
+            <div class="skeleton-desc skeleton-shimmer"></div>
+            <div class="skeleton-id skeleton-shimmer"></div>
+          </div>
+        </div>
+      `;
+    }
+    certGrid.innerHTML = skeletonHTML;
+  }
+
+  /**
+   * Render filtered certificates with micro-animation and image shimmer
+   */
+  function renderCertificates(withSkeleton = false) {
+    if (!certGrid) return;
+
+    if (withSkeleton) {
+      renderSkeleton(6);
+      setTimeout(() => {
+        doRender();
+      }, 160);
+    } else {
+      doRender();
+    }
+  }
+
+  function doRender() {
     certGrid.innerHTML = '';
 
     const filtered = certificatesData.filter(cert => {
@@ -391,13 +441,14 @@ PING idn.id (103.28.12.12): 56 data bytes
       const card = document.createElement('article');
       card.className = 'glass-card cert-card';
       card.setAttribute('data-category', cert.category);
+      card.style.animationDelay = `${idx * 0.04}s`;
 
       card.innerHTML = `
-        <div class="cert-preview-box" data-idx="${idx}" title="Klik untuk memperbesar sertifikat">
+        <div class="cert-preview-box skeleton-shimmer" data-idx="${idx}" title="Klik untuk memperbesar sertifikat">
           <img src="${cert.thumb}" alt="Sertifikat ${cert.title}" class="cert-thumb-img" loading="lazy" decoding="async" width="600" height="400">
           <div class="cert-preview-overlay">
             <span class="btn btn-primary btn-sm">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
               Perbesar
             </span>
           </div>
@@ -434,8 +485,22 @@ PING idn.id (103.28.12.12): 56 data bytes
         </div>
       `;
 
-      // Click to open modal
+      // Handle image load to remove shimmer skeleton smoothly
       const previewBox = card.querySelector('.cert-preview-box');
+      const thumbImg = card.querySelector('.cert-thumb-img');
+
+      function onImgLoaded() {
+        thumbImg.classList.add('loaded');
+        previewBox.classList.remove('skeleton-shimmer');
+      }
+
+      if (thumbImg.complete) {
+        onImgLoaded();
+      } else {
+        thumbImg.addEventListener('load', onImgLoaded);
+      }
+
+      // Click to open modal
       previewBox.addEventListener('click', () => {
         openModal(cert);
       });
@@ -443,17 +508,20 @@ PING idn.id (103.28.12.12): 56 data bytes
       certGrid.appendChild(card);
     });
 
-    // Attach copy listeners
+    // Attach copy listeners with celebratory micro-animation
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const text = btn.getAttribute('data-copy');
-        copyToClipboard(text);
+        copyToClipboard(text, btn);
       });
     });
+
+    // Rebind spotlight to new cards
+    bindCardSpotlight();
   }
 
-  // Auto-sync filter pill count badges with current certificatesData
+  // Auto-sync filter pill count badges
   function updateFilterPills() {
     const counts = { all: certificatesData.length };
     certificatesData.forEach(c => {
@@ -468,25 +536,30 @@ PING idn.id (103.28.12.12): 56 data bytes
     });
   }
 
-  // Filter Buttons
+  // Filter Buttons click handler with shimmer transition
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCategory = btn.getAttribute('data-filter');
-      renderCertificates();
+      renderCertificates(true);
     });
   });
 
-  // Search Input
+  // Search Input with debounce
+  let searchTimeout = null;
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       currentSearch = e.target.value;
-      renderCertificates();
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        renderCertificates(false);
+      }, 140);
     });
   }
 
-  // --- 6. LIGHTBOX MODAL ---
+  // --- 7. LIGHTBOX MODAL ---
   const modalBackdrop = document.getElementById('cert-modal');
   const modalImg = document.getElementById('modal-img');
   const modalTitle = document.getElementById('modal-title');
@@ -524,15 +597,16 @@ PING idn.id (103.28.12.12): 56 data bytes
     }
   });
 
-  // --- 7. COPY TO CLIPBOARD & TOAST NOTIFICATION ---
+  // --- 8. COPY TO CLIPBOARD & TOAST NOTIFICATION WITH MICRO-INTERACTION ---
   const toastContainer = document.getElementById('toast-container');
 
   function showToast(message, type = 'success') {
     if (!toastContainer) return;
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
+    const iconColor = type === 'success' ? '#1ed760' : '#f43f5e';
     toast.innerHTML = `
-      <svg width="16" height="16" fill="none" stroke="#10b981" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <svg width="16" height="16" fill="none" stroke="${iconColor}" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
       <span>${message}</span>
     `;
     toastContainer.appendChild(toast);
@@ -547,17 +621,30 @@ PING idn.id (103.28.12.12): 56 data bytes
     }, 2800);
   }
 
-  function copyToClipboard(text) {
+  function copyToClipboard(text, btnElement) {
+    const successAction = () => {
+      showToast(`ID disalin: ${text}`);
+      if (btnElement) {
+        btnElement.classList.add('copied');
+        const originalHtml = btnElement.innerHTML;
+        btnElement.innerHTML = `
+          <svg width="14" height="14" fill="none" stroke="#1ed760" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        `;
+        setTimeout(() => {
+          btnElement.classList.remove('copied');
+          btnElement.innerHTML = originalHtml;
+        }, 1800);
+      }
+    };
+
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(`ID disalin: ${text}`);
-      }).catch(() => fallbackCopy(text));
+      navigator.clipboard.writeText(text).then(successAction).catch(() => fallbackCopy(text, btnElement));
     } else {
-      fallbackCopy(text);
+      fallbackCopy(text, btnElement);
     }
   }
 
-  function fallbackCopy(text) {
+  function fallbackCopy(text, btnElement) {
     const tempInput = document.createElement('input');
     tempInput.value = text;
     document.body.appendChild(tempInput);
@@ -565,13 +652,17 @@ PING idn.id (103.28.12.12): 56 data bytes
     try {
       document.execCommand('copy');
       showToast(`ID disalin: ${text}`);
+      if (btnElement) {
+        btnElement.classList.add('copied');
+        setTimeout(() => btnElement.classList.remove('copied'), 1800);
+      }
     } catch (err) {
       showToast('Gagal menyalin ID', 'error');
     }
     document.body.removeChild(tempInput);
   }
 
-  // --- 8. CONTACT FORM SUBMISSION (Web3Forms) ---
+  // --- 9. CONTACT FORM SUBMISSION (Web3Forms) ---
   const contactForm = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   const btnText = document.getElementById('btn-text');
@@ -595,7 +686,7 @@ PING idn.id (103.28.12.12): 56 data bytes
         const data = await response.json();
 
         if (data.success) {
-          showToast('Pesan berhasil terkirim! Terima kasih.');
+          showToast('Pesan berhasil terkirim! Terima kasih atas kontak Anda.');
           contactForm.reset();
         } else {
           showToast(data.message || 'Gagal mengirim pesan.', 'error');
@@ -610,7 +701,90 @@ PING idn.id (103.28.12.12): 56 data bytes
     });
   }
 
-  // --- 9. SCROLL REVEAL OBSERVER ---
+  // --- 10. MICRO-ANIMATIONS: SPOTLIGHT ON HOVER ---
+  function bindCardSpotlight() {
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const cards = document.querySelectorAll('.glass-card');
+      cards.forEach(card => {
+        if (card.dataset.spotlightBound) return;
+        card.dataset.spotlightBound = 'true';
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    }
+  }
+
+  // --- 11. MICRO-ANIMATIONS: ANIMATED NUMBER COUNTERS ---
+  function initCounters() {
+    const statCards = document.querySelectorAll('.stat-number[data-count]');
+    if (!statCards.length) return;
+
+    let countersTriggered = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersTriggered) {
+          countersTriggered = true;
+          statCards.forEach(statEl => {
+            const target = parseInt(statEl.getAttribute('data-count'), 10);
+            const suffix = statEl.getAttribute('data-suffix') || '';
+            const duration = 1200; // ms
+            const startTime = performance.now();
+
+            function updateCount(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease-out cubic curve
+              const easeOut = 1 - Math.pow(1 - progress, 3);
+              const currentVal = Math.floor(easeOut * target);
+
+              statEl.textContent = `${currentVal}${suffix}`;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCount);
+              } else {
+                statEl.textContent = `${target}${suffix}`;
+              }
+            }
+            requestAnimationFrame(updateCount);
+          });
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const statsSection = document.querySelector('.stats-bar');
+    if (statsSection) statsObserver.observe(statsSection);
+  }
+
+  // --- 12. MICRO-ANIMATIONS: SKILLS PROGRESS BAR ANIMATION ---
+  function initSkillBars() {
+    const skillBars = document.querySelectorAll('.bar-fill[data-progress]');
+    if (!skillBars.length) return;
+
+    let barsAnimated = false;
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !barsAnimated) {
+          barsAnimated = true;
+          skillBars.forEach(bar => {
+            const targetWidth = bar.getAttribute('data-progress');
+            bar.style.width = `${targetWidth}%`;
+          });
+          skillsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const skillsSection = document.getElementById('keahlian');
+    if (skillsSection) skillsObserver.observe(skillsSection);
+  }
+
+  // --- 13. SCROLL REVEAL OBSERVER ---
   document.documentElement.classList.add('js-ready');
   const revealElements = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -628,7 +802,12 @@ PING idn.id (103.28.12.12): 56 data bytes
     revealElements.forEach(el => el.classList.add('active'));
   }
 
-  // Initial render
+  // --- 13. INITIALIZATION ---
   updateFilterPills();
-  renderCertificates();
+  bindCardSpotlight();
+  initCounters();
+  initSkillBars();
+
+  // Initial smooth render with skeleton transition
+  renderCertificates(true);
 });
