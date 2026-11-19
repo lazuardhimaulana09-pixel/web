@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae — Lazuardhi Akbar Maulana Tsani | TKJ SMKN 1 Kota Mojokerto</title>
+  <meta name="description" content="Curriculum Vitae resmi Lazuardhi Akbar Maulana Tsani — Siswa Teknik Komputer dan Jaringan (TKJ) SMKN 1 Kota Mojokerto. Siap PKL / Magang Industri IT." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg: #090b10;
+      --card-bg: #10141d;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #10b981;
+      --accent-cyan: #06b6d4;
+      --border: #1e293b;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.55;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv-actions {
+      max-width: 860px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #10b981;
+      color: #041009;
+      border-color: #10b981;
+    }
+    .btn-primary:hover {
+      background: #34d399;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-secondary {
+      background: #1e293b;
+      color: #f1f5f9;
+      border-color: #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    .cv-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    /* CV Header */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cv-name {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .cv-headline {
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .cv-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .cv-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cv-meta-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .cv-meta-item a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .cv-meta-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .cv-status-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      margin-top: 0.75rem;
+      font-weight: 500;
+    }
+
+    .cv-photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Sections */
+    .cv-section {
+      margin-bottom: 2.25rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+    }
+
+    .section-title span.indicator {
+      color: var(--accent);
+    }
+
+    .cv-summary {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .skills-table td {
+      padding: 0.7rem 0.5rem;
+      vertical-align: top;
+    }
+
+    .skills-table td.skill-label {
+      width: 32%;
+      color: #ffffff;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .skills-table td.skill-desc {
+      color: var(--text-muted);
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      margin-right: 0.35rem;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-mono);
+    }
+
+    /* Education & Certs */
+    .timeline-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .timeline-date {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    .timeline-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    /* Certs Table */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .cert-item {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.85rem;
+    }
+
+    .cert-item-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-item-issuer {
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.35rem;
+    }
+
+    .cert-item-id {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        padding: 0;
+      }
+
+      .cv-actions {
+        display: none !important;
+      }
+
+      .cv-container {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .cv-name {
+        color: #000000 !important;
+      }
+
+      .cv-headline {
+        color: #059669 !important;
+      }
+
+      .section-title {
+        color: #111827 !important;
+        border-bottom-color: #cbd5e1 !important;
+      }
+
+      .timeline-title, .skills-table td.skill-label, .cert-item-title {
+        color: #000000 !important;
+      }
+
+      .skill-tag {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .cert-item {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .cv-status-badge {
+        border-color: #059669 !important;
+        color: #059669 !important;
+        background: #ecfdf5 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cv-container {
+        padding: 1.5rem;
+      }
+      .cv-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .cv-meta-list {
+        align-items: center;
+      }
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-actions">
+    <a href="index.html" class="btn btn-secondary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+      Kembali ke Portofolio
+    </a>
+
+    <button onclick="window.print()" class="btn btn-primary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+      Cetak / Simpan PDF
+    </button>
+  </div>
+
+  <div class="cv-container">
+    <!-- Header -->
+    <header class="cv-header">
+      <div>
+        <h1 class="cv-name">Lazuardhi Akbar Maulana Tsani</h1>
+        <div class="cv-headline">&gt; Siswa Teknik Komputer &amp; Jaringan (TKJ)</div>
+        
+        <div class="cv-meta-list">
+          <div class="cv-meta-item">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            <span>Kota Mojokerto, Jawa Timur, Indonesia</span>
+          </div>
+          <div class="cv-meta-item">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:lazuardhimaulana09@gmail.com">lazuardhimaulana09@gmail.com</a>
+          </div>
+          <div class="cv-meta-item">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+            <a href="https://github.com/lazuardhimaulana09-pixel" target="_blank">github.com/lazuardhimaulana09-pixel</a>
+          </div>
+          <div class="cv-meta-item">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+            <a href="https://www.linkedin.com/in/lazuardhiamt" target="_blank">linkedin.com/in/lazuardhiamt</a>
+          </div>
+        </div>
+
+        <div class="cv-status-badge">
+          [STATUS: TERBUKA UNTUK PROGRAM MAGANG / PKL INDUSTRI IT]
+        </div>
+      </div>
+
+      <img src="foto.webp" alt="Lazuardhi Akbar Maulana Tsani" class="cv-photo" />
+    </header>
+
+    <!-- Ringkasan Profil -->
+    <section class="cv-section">
+      <h2 class="section-title"><span class="indicator">//</span> Ringkasan Profesional</h2>
+      <p class="cv-summary">
+        Siswa aktif Jurusan Teknik Komputer dan Jaringan (TKJ) SMK Negeri 1 Kota Mojokerto dengan dedikasi tinggi pada konfigurasi perangkat jaringan, administrasi server Linux, dan dasar keamanan siber. Memiliki <strong>11 sertifikat kompetensi resmi</strong> (ID-Networkers, Aguna Course, Getskill, Typing.com) serta nilai uji kuis kurikulum <strong>MTCNA 95/100</strong>. Terbiasa dengan konfigurasi MikroTik RouterOS, Cisco IOS CLI, server headless Debian, otomatisasi skrip Python 3, dan kecepatan mengetik 10 jari <strong>46 WPM (akurasi 97%)</strong>. Memiliki integritas tinggi, disiplin, dan siap berkontribusi secara nyata dalam program Praktik Kerja Lapangan (PKL) / Magang industri.
+      </p>
+    </section>
+
+    <!-- Pendidikan -->
+    <section class="cv-section">
+      <h2 class="section-title"><span class="indicator">//</span> Pendidikan Formal</h2>
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div class="timeline-title">SMK Negeri 1 Kota Mojokerto</div>
+          <div class="timeline-date">2024 — Sekarang (Aktif)</div>
+        </div>
+        <div class="timeline-sub">Program Keahlian: Teknik Komputer dan Jaringan (TKJ)</div>
+        <div class="timeline-desc">
+          Fokus pembelajaran mencakup Administrasi Infrastruktur Jaringan (AIJ), Administrasi Sistem Jaringan (ASJ), Teknologi Layanan Jaringan (TLJ), Perakitan &amp; Troubleshooting Perangkat Keras, serta Pemrograman Dasar.
+        </div>
+      </div>
+    </section>
+
+    <!-- Kompetensi Teknis -->
+    <section class="cv-section">
+      <h2 class="section-title"><span class="indicator">//</span> Matriks Kompetensi Teknis</h2>
+      <table class="skills-table">
+        <tbody>
+          <tr>
+            <td class="skill-label">Routing &amp; Switching</td>
+            <td class="skill-desc">
+              <span class="skill-tag">MikroTik RouterOS</span>
+              <span class="skill-tag">Cisco IOS CLI</span>
+              <span class="skill-tag">VLAN 802.1Q</span>
+              <span class="skill-tag">Static Routing</span>
+              <span class="skill-tag">NAT Masquerade</span>
+              <span class="skill-tag">DHCP Server/Client</span>
+              <span class="skill-tag">Bandwidth Simple Queue</span>
+              <span class="skill-tag">Cisco Packet Tracer</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="skill-label">Linux Server Admin</td>
+            <td class="skill-desc">
+              <span class="skill-tag">Debian 12 Headless</span>
+              <span class="skill-tag">Ubuntu Server</span>
+              <span class="skill-tag">SSH Key Hardening (Ed25519)</span>
+              <span class="skill-tag">Systemd Services</span>
+              <span class="skill-tag">UFW Firewall</span>
+              <span class="skill-tag">File Permissions (chmod/chown)</span>
+              <span class="skill-tag">Bash Shell CLI</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="skill-label">Keamanan Siber</td>
+            <td class="skill-desc">
+              <span class="skill-tag">CIA Triad Model</span>
+              <span class="skill-tag">Port &amp; Service Analysis</span>
+              <span class="skill-tag">Firewall Filter Rules</span>
+              <span class="skill-tag">Default Port Hardening</span>
+              <span class="skill-tag">Audit Sandi &amp; Akses</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="skill-label">Pemrograman &amp; Git</td>
+            <td class="skill-desc">
+              <span class="skill-tag">Python 3 (Subnetting Logic)</span>
+              <span class="skill-tag">Git Version Control</span>
+              <span class="skill-tag">GitHub Pages Deployment</span>
+              <span class="skill-tag">Markdown Documentation</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="skill-label">Hardware &amp; Produktivitas</td>
+            <td class="skill-desc">
+              <span class="skill-tag">Crimping UTP T568A/B</span>
+              <span class="skill-tag">LAN Cable Tester</span>
+              <span class="skill-tag">Touch Typing 46 WPM (97% Akurasi)</span>
+              <span class="skill-tag">Hardware Diagnostics</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Sertifikasi Resmi (11 Sertifikat) -->
+    <section class="cv-section">
+      <h2 class="section-title"><span class="indicator">//</span> 11 Sertifikasi Resmi Terverifikasi</h2>
+      <div class="certs-grid">
+        <div class="cert-item">
+          <div class="cert-item-title">Mikrotik Dasar</div>
+          <div class="cert-item-issuer">ID-Networkers (IDN.ID)</div>
+          <div class="cert-item-id">No. Lisensi: IDN-1782374906-182-66733</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Cisco Dasar</div>
+          <div class="cert-item-issuer">ID-Networkers (IDN.ID)</div>
+          <div class="cert-item-id">No. Lisensi: IDN-1762353350-184-66733</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Jaringan Komputer Dasar</div>
+          <div class="cert-item-issuer">ID-Networkers (IDN.ID)</div>
+          <div class="cert-item-id">No. Lisensi: IDN-1762423718-180-66733</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">MTCNA Quiz Assessment (Skor 95/100)</div>
+          <div class="cert-item-issuer">ProProfs Quiz Assessment</div>
+          <div class="cert-item-id">No. Lisensi: 350165853</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">MTCNA Quiz Assessment (Skor 94/100)</div>
+          <div class="cert-item-issuer">ProProfs Quiz Assessment</div>
+          <div class="cert-item-id">No. Lisensi: 350286451</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Belajar Linux dari Nol</div>
+          <div class="cert-item-issuer">ID-Networkers (IDN.ID)</div>
+          <div class="cert-item-id">No. Lisensi: IDN-1762251503-11033-66733</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Linux Fundamental</div>
+          <div class="cert-item-issuer">Aguna Course</div>
+          <div class="cert-item-id">No. Lisensi: AC-963-67991148-12</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Belajar Cyber Security dari Nol</div>
+          <div class="cert-item-issuer">ID-Networkers (IDN.ID)</div>
+          <div class="cert-item-id">No. Lisensi: IDN-1771683787-13888-66733</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Python Fundamental</div>
+          <div class="cert-item-issuer">Aguna Course</div>
+          <div class="cert-item-id">No. Lisensi: AC-647-66819669-44</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Tutorial Dasar Menggunakan Github</div>
+          <div class="cert-item-issuer">Getskill.id</div>
+          <div class="cert-item-id">No. Lisensi: 12202611021483</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-item-title">Intermediate Typing Certificate (46 WPM - 97%)</div>
+          <div class="cert-item-issuer">Typing.com</div>
+          <div class="cert-item-id">No. Lisensi: 416033169-171984096</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pengalaman Laboratorium & Simulasi -->
+    <section class="cv-section">
+      <h2 class="section-title"><span class="indicator">//</span> Laboratorium &amp; Implementasi Nyata</h2>
+      
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div class="timeline-title">MikroTik RouterOS: Multi-SSID &amp; Hotspot Bandwidth Management</div>
+          <div class="timeline-date">Praktik Lab Mandiri</div>
+        </div>
+        <div class="timeline-desc">
+          Membangun konfigurasi gateway internet sekolah. Menerapkan Hotspot Server terisolasi dengan Simple Queue untuk membatasi traffic bandwidth tiap klien, serta pemisahan jaringan manajemen dan siswa via VLAN.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div class="timeline-title">Cisco IOS: Segmentasi Enterprise VLAN &amp; Inter-VLAN Routing</div>
+          <div class="timeline-date">Simulasi Cisco Packet Tracer</div>
+        </div>
+        <div class="timeline-desc">
+          Merancang topologi multi-switch dengan 802.1Q trunking, segmentasi traffic VLAN antar departemen, dan konfigurasi Router-on-a-Stick menggunakan sub-interface.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-head">
+          <div class="timeline-title">Linux Debian 12: Home Lab Server Hardening &amp; SSH Key</div>
+          <div class="timeline-date">Implementasi Home Lab Headless</div>
+        </div>
+        <div class="timeline-desc">
+          Konfigurasi server Debian 12 headless: penonaktifan password login root, autentikasi public key Ed25519, konfigurasi UFW firewall, dan cron job otomatisasi backup.
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Note -->
+    <footer style="margin-top:2.5rem; border-top:1px solid var(--border); padding-top:1rem; font-size:0.8rem; color:var(--text-muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-family:var(--font-mono);">
+      <span>Dokumen Resmi Portofolio Lazuardhi Akbar Maulana Tsani</span>
+      <span>Diverifikasi per 2026 • SMKN 1 Kota Mojokerto</span>
+    </footer>
+  </div>
+
+</body>
+</html>
