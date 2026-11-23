@@ -1,7 +1,114 @@
+# ==============================================================================
+# .gitignore — Comprehensive Protection for Portofolio Lazuardhi Akbar M.T.
+# Mencegah file pribadi, rahasia, dokumen internal, dan artefak ter-push ke GitHub
+# ==============================================================================
+
+# 1. Direktori & Dokumen Pribadi (Simpan file penting kamu di folder ini)
+private/
+rahasia/
+personal/
+drafts/
+catatan/
+notes/
+internal/
+docs/private/
+temp/
+tmp/
+
+# 2. Dokumen Identitas & Berkas Sensitif
+*ktp*
+*kk*
+*ijazah*
+*raport*
+*transkrip*
+*skck*
+*surat*
+*identitas*
+*kartu*
+*.id
+
+# 3. Format Dokumen Pengolah Kata & Spreadsheet Pribadi
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.csv
+*.ppt
+*.pptx
+*.odt
+*.ods
+*.rtf
+
+# 4. Berkas Catatan Teks, Draft & Todo Lokal
+*catatan*
+*notes*
+*draft*
+*todo*
+*secret*
+*rahasia*
+*credential*
+*password*
+*akun*
+text.txt
+*.bak
+*.backup
+*.old
+*~
+*.tmp
+
+# 5. Environment Variables & Secret Keys
+.env
+.env.*
+*.env
+*.key
+*.pem
+*.cert
+*.p12
+*.pfx
+*.token
+id_rsa*
+*.id_rsa
+*.pub_key
+*.secret
+
+# 6. Arsip & Kompresi Berkas Lokal
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.iso
+
+# 7. Sistem Operasi & Log Sampah
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 *.log
-temp_ppm/
-/tmp/
-.vscode/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 8. Editor & IDE Workspace Configs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
 .idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.swp
+*.swo
+
+# 9. Cache Browser & Build Artifacts
+.cache/
+.parcel-cache/
+dist/
+build/
+node_modules/
+temp_ppm/

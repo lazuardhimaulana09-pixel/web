@@ -1085,6 +1085,7 @@ rtt min/avg/max/mdev = 10.912/11.540/12.231/0.480 ms
   const mobileDrawer = document.getElementById('mobile-drawer');
   const navLinks = document.querySelectorAll('.nav-desktop .nav-link');
   const drawerLinks = document.querySelectorAll('.mobile-drawer .nav-link');
+  const mobileCmdTrigger = document.getElementById('mobile-cmd-trigger');
   const backToTop = document.getElementById('back-to-top');
 
   if (hamburger && mobileDrawer) {
@@ -1092,14 +1093,27 @@ rtt min/avg/max/mdev = 10.912/11.540/12.231/0.480 ms
       mobileDrawer.classList.toggle('active');
       const expanded = mobileDrawer.classList.contains('active');
       hamburger.setAttribute('aria-expanded', expanded);
+      document.body.style.overflow = expanded ? 'hidden' : '';
       sfx.playBeep(640, 0.05);
     });
 
     drawerLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileDrawer.classList.remove('active');
+        document.body.style.overflow = '';
         hamburger.setAttribute('aria-expanded', 'false');
       });
+    });
+  }
+
+  if (mobileCmdTrigger) {
+    mobileCmdTrigger.addEventListener('click', () => {
+      if (mobileDrawer) {
+        mobileDrawer.classList.remove('active');
+        document.body.style.overflow = '';
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      }
+      openCommandPalette();
     });
   }
 

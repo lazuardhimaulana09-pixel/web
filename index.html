@@ -161,9 +161,20 @@
       <span>Kontak</span>
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
     </a>
-    <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
-      <a href="cv.html" target="_blank" class="btn btn-primary" style="flex:1;">Unduh CV Resmi</a>
-      <button id="mobile-sfx-toggle" class="btn btn-outline" style="width:auto;">🔊 SFX</button>
+    <div class="mobile-drawer-actions">
+      <a href="cv.html" target="_blank" class="btn btn-cv-hero" style="width:100%; text-align:center;">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Unduh CV Resmi (PDF)
+      </a>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.5rem;">
+        <button id="mobile-cmd-trigger" class="btn btn-terminal" style="width:100%;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          Cari (Ctrl+K)
+        </button>
+        <button id="mobile-sfx-toggle" class="btn btn-outline" style="width:100%;">
+          🔊 SFX: ON
+        </button>
+      </div>
     </div>
   </div>
 
